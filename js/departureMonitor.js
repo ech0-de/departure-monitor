@@ -11,7 +11,7 @@ var departureMonitor = angular.module('departureMonitor', [])
 			$scope.departures = res.data.departures;
 		});
 
-		$timeout($scope.onTimeout, 60 * 1000);
+		$timeout($scope.onTimeout, 30 * 1000);
 	}
 	$scope.onTimeout();
 });
