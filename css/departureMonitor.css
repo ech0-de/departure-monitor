@@ -10,6 +10,12 @@ body {
 	font-size: 30px;
 	font-size: 4vw;
 }
+@media (min-width: 768px) {
+	* {
+		font-size: 40px;
+		font-size: 6vw;
+	}
+}
 
 /* The odd table rows need a bit more contrast, than bootstrap usual has */ 
 .table-striped > tbody > tr:nth-child(2n+1) > td,
