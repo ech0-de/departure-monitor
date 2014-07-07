@@ -5,10 +5,9 @@ var departureMonitor = angular.module('departureMonitor', [])
 	$scope.departures = [];
 
 	$scope.onTimeout = function() {
-		$scope.date = new Date();
-
 		$http.get('http://127.0.0.1:9000').then(function(res) {
 			$scope.stopname = res.data.info.stopname;
+			$scope.timestamp = res.data.info.timestamp;
 			$scope.departures = res.data.departures;
 		});
 
