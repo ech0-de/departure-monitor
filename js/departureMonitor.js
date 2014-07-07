@@ -4,6 +4,11 @@ var departureMonitor = angular.module('departureMonitor', [])
 	$scope.stopname = 'departureMonitor';
 	$scope.departures = [];
 
+	// reload page every hour (auto update)
+	$timeout(function() {
+		location.reload();
+	}, 60 * 60 * 1000);
+
 	$scope.onTimeout = function() {
 		$http.get('http://127.0.0.1:9000').then(function(res) {
 			$scope.stopname = res.data.info.stopname;
