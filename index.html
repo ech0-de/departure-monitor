@@ -25,7 +25,7 @@
 				<tr data-ng-repeat="departure in departures">
 					<td>&nbsp;{{ departure.line }}</td>
 					<td>{{ departure.direction }}</td>
-					<td class="text-right">{{ departure.countdown }}&nbsp;</td>
+					<td class="text-right">{{ departure.countdown }}&nbsp;<img ng-show="departure.icon" ng-src="img/{{ departure.icon }}.png"></td>
 				</tr>
 				<tr>
 					<th>&nbsp;#</th>

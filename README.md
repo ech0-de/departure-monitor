@@ -18,6 +18,10 @@ Open the `index.html` with your favorite browser.
  * [bootstrap](http://getbootstrap.com/)
  * [angularjs](http://angularjs.org/)
 
+# Icons
+ * [Clock](http://thenounproject.com/term/clock/1303/) designed by [John Caserta](http://www.thenounproject.com/johncaserta) from the [Noun Project](http://www.thenounproject.com) ([CC BY 3.0](https://creativecommons.org/licenses/by/3.0/us/)) (recolored yellow for higher contrast)
+ * [List](http://thenounproject.com/term/list/7577/) designed by [Quan Do](http://www.thenounproject.com/madebyquan) from the [Noun Project](http://www.thenounproject.com) ([CC BY 3.0](https://creativecommons.org/licenses/by/3.0/us/)) (recolored yellow for higher contrast)
+
 # License
 
 	Copyright (c) 2014

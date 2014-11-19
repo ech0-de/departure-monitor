@@ -14,11 +14,20 @@ var departureMonitor = angular.module('departureMonitor', [])
 			$scope.stopname = res.data.info.stopname;
 			$scope.timestamp = res.data.info.timestamp;
 			$scope.departures = res.data.departures.splice(0,6).reverse();
+
+			for (var i = 0; $scope.departures.length; i++) {
+				if ($scope.departures[i].realtime == "1")
+					$scope.departures[i].icon = "realtime";
+				else
+					$scope.departures[i].icon = "schedule";
+			}
+
 			while ($scope.departures.length < 6) {
 				$scope.departures.unshift({
 					countdown: "",
 					direction: "",
-					line: ""
+					icon: false,
+					line: "",
 				});
 			}
 		});
