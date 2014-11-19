@@ -13,7 +13,14 @@ var departureMonitor = angular.module('departureMonitor', [])
 		$http.get('http://127.0.0.1:9000').then(function(res) {
 			$scope.stopname = res.data.info.stopname;
 			$scope.timestamp = res.data.info.timestamp;
-			$scope.departures = res.data.departures;
+			$scope.departures = res.data.departures.splice(0,6).reverse();
+			while ($scope.departures.length < 6) {
+				$scope.departures.unshift({
+					countdown: "",
+					direction: "",
+					line: ""
+				});
+			}
 		});
 
 		$timeout($scope.onTimeout, 16 * 1000);

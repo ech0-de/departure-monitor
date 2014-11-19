@@ -22,15 +22,15 @@
 
 		<div class="container-fluid">
 			<table class="table table-striped">
-				<tr>
-					<th>&nbsp;#</th>
-					<th>Richtung</th>
-					<th class="text-right">Min&nbsp;</th>
-				</tr>
 				<tr data-ng-repeat="departure in departures">
 					<td>&nbsp;{{ departure.line }}</td>
 					<td>{{ departure.direction }}</td>
 					<td class="text-right">{{ departure.countdown }}&nbsp;</td>
+				</tr>
+				<tr>
+					<th>&nbsp;#</th>
+					<th>Richtung</th>
+					<th class="text-right">Min&nbsp;</th>
 				</tr>
 			</table>
 		</div>
