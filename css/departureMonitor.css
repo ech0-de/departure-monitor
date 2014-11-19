@@ -18,6 +18,7 @@ body {
 .table>tbody>tr>td,
 .table>tfoot>tr>td {
     border-color: #333;
+	white-space: nowrap;
 }
 
 /* Make font-size responsive 
