@@ -13,13 +13,15 @@ var departureMonitor = angular.module('departureMonitor', [])
 		$http.get('http://127.0.0.1:9000').then(function(res) {
 			$scope.stopname = res.data.info.stopname;
 			$scope.timestamp = res.data.info.timestamp;
-			$scope.departures = res.data.departures.splice(0,6).reverse();
+			$scope.departures = res.data.departures.splice(0,5);
 
 			for (var i = 0; $scope.departures.length; i++) {
-				if ($scope.departures[i].realtime == "1")
-					$scope.departures[i].icon = "realtime";
-				else
+				if ($scope.departures[i].realtime == "1") {
+					$scope.departures[i].icon = false;
+					$scope.departures[i].countdown += " + " + $scope.departures[i].delay;
+				} else {
 					$scope.departures[i].icon = "schedule";
+				}
 			}
 
 			while ($scope.departures.length < 6) {

@@ -27,7 +27,7 @@ body {
 	font-size: 30px;
 	font-size: 4vw;
 	/* improve contrast (see http://www.writer2001.com/colwebcontrast.htm) */
-	color: yellow;
+	color: #ffc400;
 }
 @media (min-width: 768px) {
 	* {

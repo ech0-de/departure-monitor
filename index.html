@@ -13,12 +13,7 @@
 		<script src="js/departureMonitor.js"></script>
 	</head>
 	<body>
-		<div class="panel panel-default">
-			<div class="panel-heading">
-				<b>{{ stopname }}</b>
-				<span class="pull-right">{{ timestamp }}</span>
-			</div>
-		</div>
+		<div class="panel panel-default"><div class="panel-heading">&nbsp;</div></div>
 
 		<div class="container-fluid">
 			<table class="table table-striped">
@@ -31,6 +26,12 @@
 					<th>&nbsp;#</th>
 					<th>Richtung</th>
 					<th class="text-right">Min&nbsp;</th>
+				</tr>
+				<tr>
+					<th colspan="3">
+						<b>{{ stopname }}</b>
+						<span class="pull-right">{{ timestamp }}</span>
+					</th>
 				</tr>
 			</table>
 		</div>
