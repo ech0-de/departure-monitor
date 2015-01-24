@@ -19,7 +19,7 @@ var departureMonitor = angular.module('departureMonitor', [])
 				if ($scope.departures[i].realtime == "1") {
 					$scope.departures[i].icon = false;
 					if ($scope.departures[i].delay > 0) {
-						$scope.departures[i].countdown += " +" + $scope.departures[i].delay;
+						$scope.departures[i].countdown = " (+" + $scope.departures[i].delay + ")" + $scope.departures[i].countdown;
 					}
 				} else {
 					$scope.departures[i].icon = "schedule";
