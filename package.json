@@ -1,0 +1,36 @@
+{
+  "name": "departure-monitor",
+  "version": "0.1.0",
+  "description": "A distributed departure monitor using html5 and socket.io",
+  "author": "Dominik Meißner <dome@ech0.de>",
+  "contributors": [
+    {
+      "name": "Dominik Meißner",
+      "email": "dome@ech0.de"
+    }
+  ],
+  "scripts": {
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/0x530302/departure-monitor"
+  },
+  "bugs": {
+    "url": "https://github.com/0x530302/departure-monitor/issues"
+  },
+  "keywords": [
+    "nodejitsu",
+    "example",
+    "browsenpm"
+  ],
+  "dependencies": {
+    "express": "^4.12.3",
+    "libxmljs": "^0.14.0",
+    "socket.io": "^1.3.5",
+    "xml2js": "^0.4.8"
+  },
+  "private": true,
+  "preferGlobal": true,
+  "license": "MIT"
+}
