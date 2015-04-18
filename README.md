@@ -1,7 +1,7 @@
 # departure-monitor
 
-This is a very basic departure monitor using html5, bootstrap and angularjs.
-The project connects to a json formatted gtfs feed and displays them in a
+A distributed departure monitor using html5, angularjs and socket.io.
+The monitor connects to a json formatted gtfs feed and displays departure in a
 simple and responsive web interface.
 
 <img align="right" width="200" src="http://ech0.de/img/departure-monitor.png">
@@ -9,22 +9,25 @@ simple and responsive web interface.
 ## Install
 
 ```sh
-$ npm install -g departure-monitor
+$ git clone https://github.com/0x530302/departure-monitor
+$ cd departure-monitor
+$ npm install
 ```
 
 ## Usage
 
-Open the `index.html` with your favorite browser.
+Start the server and open the indicated URL with your favorite browser.
 
+```sh
+$ npm start
+```
 
 ## Libraries
 
- * [bootstrap](http://getbootstrap.com/)
+ * [node.js](http://nodejs.org/)
+ * [socket.io](http://socket.io/)
  * [angularjs](http://angularjs.org/)
-
-## Icons
- * [Clock](http://thenounproject.com/term/clock/1303/) designed by [John Caserta](http://www.thenounproject.com/johncaserta) from the [Noun Project](http://www.thenounproject.com) ([CC BY 3.0](https://creativecommons.org/licenses/by/3.0/us/)) (recolored yellow for higher contrast)
- * [List](http://thenounproject.com/term/list/7577/) designed by [Quan Do](http://www.thenounproject.com/madebyquan) from the [Noun Project](http://www.thenounproject.com) ([CC BY 3.0](https://creativecommons.org/licenses/by/3.0/us/)) (recolored yellow for higher contrast)
+ * [normalize](http://necolas.github.io/normalize.css/)
 
 ## License
 

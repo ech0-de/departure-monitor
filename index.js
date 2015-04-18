@@ -16,6 +16,7 @@ srv.listen(port, function() {
 
 app.use(express.static(__dirname + '/public'));
 app.use('/angular', express.static(__dirname + '/node_modules/angular'));
+app.use('/normalize', express.static(__dirname + '/node_modules/normalize.css'));
 
 io.on('connection', function(socket){
     socket.on('chat message', function(msg){
@@ -95,7 +96,7 @@ callback = function(response) {
 	}
 
 	departures.sort(function(a, b) {
-	    return a.countdown - b.countdown;
+	    return parseInt(a.countdown) - parseInt(b.countdown);
 	});
 
 	io.emit('departures', {
