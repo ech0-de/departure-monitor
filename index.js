@@ -1,24 +1,27 @@
 var http = require('http');
-//var app = require('express')(); //var io = require('socket.io')(http.Server(app));
-var xml2js = require('xml2js');
-var libxmljs = require('libxmljs');
-var parser = new xml2js.Parser();
+var iconv = require('iconv-lite');
+var express = require('express');
 
-/*
-app.get('/', function(req, res){
-    res.sendFile(__dirname + '/index.html');
+var app = express();
+var srv = http.createServer(app);
+var io = require('socket.io')(srv);
+
+var libxmljs = require('libxmljs');
+var port = process.env.PORT || 3000;
+var pad = function(n) { return ('00' + n).slice(-2); }
+
+srv.listen(port, function() {
+    console.log('Server listening at port %d', port);
 });
+
+app.use(express.static(__dirname + '/public'));
+app.use('/angular', express.static(__dirname + '/node_modules/angular'));
 
 io.on('connection', function(socket){
     socket.on('chat message', function(msg){
 	io.emit('chat message', msg);
     });
 });
-
-http.listen(3000, function(){
-    console.log('listening on *:3000');
-});
-*/
 
 // error message in case ding servers a down:
 var errormsg = {
@@ -41,7 +44,7 @@ callback = function(response) {
     var data = '';
 
     response.on('data', function(chunk) {
-	data += chunk;
+	data += iconv.decode(chunk, 'latin1');
     });
 
     response.on('end', function() {
@@ -92,18 +95,17 @@ callback = function(response) {
 	}
 
 	departures.sort(function(a, b) {
-	    return b.countdown - b.countdown;
+	    return a.countdown - b.countdown;
 	});
 
-	console.log(JSON.stringify({
+	io.emit('departures', {
 	    info: info,
 	    departures: departures
-	}, null, 2));
+	});
     });
 };
 
-http.request(options, callback).end();
+setInterval(function() {
+    http.request(options, callback).end();
+}, 10000);
 
-function pad(n) {
-    return ('00' + n).slice(-2);
-}

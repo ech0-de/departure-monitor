@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en" data-ng-app="departureMonitor" data-ng-controller="DepartureMonitorController">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    <title>{{ stopname }}</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container-fluid">
+	<table class="table table-striped">
+	    <tr>
+		<th>&nbsp;#</th>
+		<th>Richtung</th>
+		<th class="text-right">Min&nbsp;</th>
+	    </tr>
+	    <tr data-ng-repeat="departure in departures">
+		<td>&nbsp;{{ departure.line }}</td>
+		<td>{{ departure.direction }}</td>
+		<td class="text-right">{{ departure.countdown }}</td>
+	    </tr>
+	    <tr>
+		<th colspan="3">
+		    <b>{{ stopname }}</b>
+		    <span class="pull-right">{{ timestamp }}</span>
+		</th>
+	    </tr>
+	</table>
+    </div>
+
+    <script src="/angular/angular.min.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/main.js"></script>
+</body>
+
+</html>
