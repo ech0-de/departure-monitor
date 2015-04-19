@@ -17,13 +17,13 @@ body {
 @media (min-width: 768px) {
     * {
 	font-size: 40px;
-	font-size: 6vw;
+	font-size: 8vw;
     }
 }
 
 .departure {
     width: 100%;
-    height: 15%;
+    height: 20%;
 }
 
 .departure > * {
@@ -32,15 +32,19 @@ body {
     margin-top: 1%;
     border-width: 2px;
     border-color: #333;
-    background-color: #222;
+    background-color: #4C4C4C;
     white-space: nowrap;
+}
+
+.departure:nth-child(odd) > * {
+    background-color: #2C2C2C;
 }
 
 .departure-line {
     border-top-left-radius: 25px;
     border-bottom-left-radius: 25px;
 
-    width: 9%;
+    width: 12%;
     clear: left;
 
     margin-left: 1%;
@@ -50,7 +54,7 @@ body {
 }
 
 .departure-direction {
-    width: 70%;
+    width: 64%;
     height: 100%;
 
     padding-left: 1%;
@@ -61,11 +65,47 @@ body {
 }
 
 .departure-countdown {
-    width: 12%;
+    width: 15%;
 
     padding-left: 1%;
     padding-right: 1%;
     margin-left: 1%;
 
     text-align: right;
+}
+
+.departure-hour {
+    font-size: 30px;
+    font-size: 4vw;
+}
+
+#stop-info {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    height: 55px;
+    height: 7.5vw;
+
+    background-color: rgba(20, 20, 20, 0.9);
+}
+
+#stop-name {
+    margin: 0;
+    font-size: 30px;
+    font-size: 4vw;
+
+    position: absolute;
+    bottom: 1%;
+    left: 1%;
+}
+
+#stop-time {
+    margin: 0;
+    font-size: 40px;
+    font-size: 6vw;
+
+    position: absolute;
+    bottom: 1%;
+    right: 1%;
 }

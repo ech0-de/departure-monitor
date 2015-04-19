@@ -42,13 +42,14 @@ var departureMonitor = angular.module('departureMonitor', [])
 	$scope.departures = data.departures.splice(0,5);
 
 	for (var i = 0; $scope.departures.length; i++) {
-	    if ($scope.departures[i].realtime == "1") {
-		if ($scope.departures[i].delay > 0) {
-		    $scope.departures[i].countdown = " (+" + $scope.departures[i].delay + ")" + $scope.departures[i].countdown;
-		}
-	    }
-	    if ($scope.departures[i].countdown > 25) {
-		$scope.departures[i].countdown = $scope.departures[i].timetable;
+	    $scope.departures[i].hour = '';
+	    $scope.departures[i].direction = $scope.departures[i].direction.replace(/ \(.*\)/, '');
+
+	    if ($scope.departures[i].realtime == "1" && $scope.departures[i].delay > 0) {
+		$scope.departures[i].countdown = " (+" + $scope.departures[i].delay + ")" + $scope.departures[i].countdown;
+	    } else if ($scope.departures[i].countdown > 25) {
+		$scope.departures[i].hour = $scope.departures[i].timetable.substr(0, 3);
+		$scope.departures[i].countdown = $scope.departures[i].timetable.substr(3);
 	    }
 	}
     });

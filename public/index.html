@@ -15,15 +15,18 @@
     <div class="departure" data-ng-repeat="departure in departures">
 	<div class="departure-line">{{ departure.line }}</div>
 	<div class="departure-direction">{{ departure.direction }}</div>
-	<div class="departure-countdown">{{ departure.countdown }}</div>
+	<div class="departure-countdown">
+	    <span class="departure-hour">
+		{{ departure.hour }}
+	    </span>
+	    {{ departure.countdown }}
+	</div>
     </div>
 
-    <!--
-    <div>
-	<b>{{ stopname }}</b>
-	<span class="pull-right">{{ timestamp }}</span>
+    <div id="stop-info">
+	<div id="stop-name">{{ stopname }}</div>
+	<div id="stop-time">{{ timestamp }}</div>
     </div>
-    -->
 
     <script src="/angular/angular.min.js"></script>
     <script src="/socket.io/socket.io.js"></script>
