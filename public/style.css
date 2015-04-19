@@ -54,7 +54,7 @@ body {
 }
 
 .departure-direction {
-    width: 65%;
+    width: 63%;
     height: 100%;
 
     padding-left: 1%;
@@ -65,7 +65,7 @@ body {
 }
 
 .departure-countdown {
-    width: 15%;
+    width: 17%;
 
     padding-left: 1%;
     padding-right: 1%;
@@ -126,5 +126,4 @@ body {
 
 .departure.ng-leave.ng-leave-active {
     margin-left:200%;
-    margin-top:-100%;
 }

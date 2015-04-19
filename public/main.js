@@ -73,8 +73,8 @@ var departureMonitor = angular.module('departureMonitor', ['ngAnimate'])
 
 	    // update departure information
 	    if (departure.realtime == "1" && departure.delay > 0) {
-		$scope.departures[hash].minutes = " (+" + departure.delay + ")" + departure.countdown;
-		$scope.departures[hash].hour = '';
+		$scope.departures[hash].minutes = departure.countdown;
+		$scope.departures[hash].hour = '(+' + departure.delay + ')';
 	    } else if (departure.countdown > 25) {
 		$scope.departures[hash].minutes = departure.timetable.substr(3);
 		$scope.departures[hash].hour = departure.timetable.substr(0, 3);
