@@ -47,6 +47,9 @@ var departureMonitor = angular.module('departureMonitor', [])
 		    $scope.departures[i].countdown = " (+" + $scope.departures[i].delay + ")" + $scope.departures[i].countdown;
 		}
 	    }
+	    if ($scope.departures[i].countdown > 25) {
+		$scope.departures[i].countdown = $scope.departures[i].timetable;
+	    }
 	}
     });
 });
