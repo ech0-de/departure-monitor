@@ -12,26 +12,18 @@
 </head>
 
 <body>
-    <div class="container-fluid">
-	<table class="table table-striped">
-	    <tr>
-		<th>&nbsp;#</th>
-		<th>Richtung</th>
-		<th class="text-right">Min&nbsp;</th>
-	    </tr>
-	    <tr data-ng-repeat="departure in departures">
-		<td>&nbsp;{{ departure.line }}</td>
-		<td>{{ departure.direction }}</td>
-		<td class="text-right">{{ departure.countdown }}</td>
-	    </tr>
-	    <tr>
-		<th colspan="3">
-		    <b>{{ stopname }}</b>
-		    <span class="pull-right">{{ timestamp }}</span>
-		</th>
-	    </tr>
-	</table>
+    <div class="departure" data-ng-repeat="departure in departures">
+	<div class="departure-line">{{ departure.line }}</div>
+	<div class="departure-direction">{{ departure.direction }}</div>
+	<div class="departure-countdown">{{ departure.countdown }}</div>
     </div>
+
+    <!--
+    <div>
+	<b>{{ stopname }}</b>
+	<span class="pull-right">{{ timestamp }}</span>
+    </div>
+    -->
 
     <script src="/angular/angular.min.js"></script>
     <script src="/socket.io/socket.io.js"></script>
