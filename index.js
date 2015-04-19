@@ -10,6 +10,8 @@ var libxmljs = require('libxmljs');
 var port = process.env.PORT || 3000;
 var pad = function(n) { return ('00' + n).slice(-2); }
 
+var disruptionFeed = '';
+
 srv.listen(port, function() {
     console.log('Server listening at port %d', port);
 });
@@ -17,6 +19,7 @@ srv.listen(port, function() {
 app.use(express.static(__dirname + '/public'));
 app.use('/angular', express.static(__dirname + '/node_modules/angular'));
 app.use('/angular-animate', express.static(__dirname + '/node_modules/angular-animate'));
+app.use('/font-awesome', express.static(__dirname + '/node_modules/font-awesome'));
 app.use('/normalize', express.static(__dirname + '/node_modules/normalize.css'));
 
 io.on('connection', function(socket){
@@ -107,7 +110,38 @@ callback = function(response) {
     });
 };
 
+var disruptionOptions = {
+    host: 'www.swu.de',
+    path: '/index.php?id=5429&type=61312'
+};
+
+var disruptionCallback = function(response) {
+    var data = '';
+
+    response.on('data', function(chunk) {
+	data += chunk;
+    });
+
+    response.on('end', function() {
+	var xml = libxmljs.parseXmlString(data);
+
+	var notice = '';
+
+	if (xml.get('/root/teaseritem/teaser'))
+	    notice = xml.get('/root/teaseritem/teaser').text();
+
+	if (notice != disruptionFeed) {
+	    disruptionFeed = notice;
+	    io.emit('disruption', notice);
+	}
+    });
+};
+
+
 setInterval(function() {
     http.request(options, callback).end();
 }, 5000);
 
+setInterval(function() {
+    http.request(disruptionOptions, disruptionCallback).end();
+}, 15000);

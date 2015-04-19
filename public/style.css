@@ -127,3 +127,48 @@ body {
 .departure.ng-leave.ng-leave-active {
     margin-left:200%;
 }
+
+@keyframes marquee {
+    0%   { transform: translate(100vw, 0); }
+    100% { transform: translate(-100%, 0); }
+}
+
+/* Chrome, Safari, Opera */
+@-webkit-keyframes marquee {
+    0%   { transform: translate(100vw, 0); }
+    100% { transform: translate(-100%, 0); }
+}
+
+.disruption-feed {
+    position: absolute;
+    bottom: 15%;
+    left: 20px;
+
+    font-size: 60px;
+    font-size: 7vw;
+
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.disruption-feed.active {
+    animation: marquee 40s linear infinite;
+
+    /* Chrome, Safari, Opera */
+    -webkit-animation: marquee 40s linear infinite;
+}
+
+.disruption-bg {
+    position: absolute;
+    height: 70px;
+    height: 8vw;
+    padding: 10px;
+    bottom: 15%;
+    right: 0;
+    left: 0;
+
+    font-size: 60px;
+    font-size: 7vw;
+
+    background-color: rgba(36, 24, 4, 0.8);
+}

@@ -34,6 +34,7 @@ $ npm start
  * [socket.io](http://socket.io/)
  * [angularjs](http://angularjs.org/)
  * [normalize](http://necolas.github.io/normalize.css/)
+ * [Font Awesome](https://fortawesome.github.io/Font-Awesome/)
 
 ## License
 
