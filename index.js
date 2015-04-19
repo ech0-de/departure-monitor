@@ -16,6 +16,7 @@ srv.listen(port, function() {
 
 app.use(express.static(__dirname + '/public'));
 app.use('/angular', express.static(__dirname + '/node_modules/angular'));
+app.use('/angular-animate', express.static(__dirname + '/node_modules/angular-animate'));
 app.use('/normalize', express.static(__dirname + '/node_modules/normalize.css'));
 
 io.on('connection', function(socket){
@@ -108,5 +109,5 @@ callback = function(response) {
 
 setInterval(function() {
     http.request(options, callback).end();
-}, 10000);
+}, 5000);
 

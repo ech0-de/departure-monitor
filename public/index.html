@@ -12,14 +12,14 @@
 </head>
 
 <body>
-    <div class="departure" data-ng-repeat="departure in departures">
+    <div class="departure" data-ng-repeat="departure in departures | orderObjectBy:'countdown'">
 	<div class="departure-line">{{ departure.line }}</div>
 	<div class="departure-direction">{{ departure.direction }}</div>
 	<div class="departure-countdown">
 	    <span class="departure-hour">
 		{{ departure.hour }}
 	    </span>
-	    {{ departure.countdown }}
+	    {{ departure.minutes }}
 	</div>
     </div>
 
@@ -29,6 +29,7 @@
     </div>
 
     <script src="/angular/angular.min.js"></script>
+    <script src="/angular-animate/angular-animate.min.js"></script>
     <script src="/socket.io/socket.io.js"></script>
     <script src="/main.js"></script>
 </body>

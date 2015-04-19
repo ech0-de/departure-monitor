@@ -1,5 +1,23 @@
-var departureMonitor = angular.module('departureMonitor', [])
+var departureMonitor = angular.module('departureMonitor', ['ngAnimate'])
 
+// http://justinklemm.com/angularjs-filter-ordering-objects-ngrepeat/
+.filter('orderObjectBy', function() {
+    return function(items, field, reverse) {
+	var filtered = [];
+	    angular.forEach(items, function(item) {
+		filtered.push(item);
+	    });
+	    filtered.sort(function(a, b) {
+		return (a[field] > b[field] ? 1 : -1);
+	    });
+	if (reverse)
+	    filtered.reverse();
+
+	return filtered;
+    };
+})
+
+// http://www.interaktionsdesigner.de/2013/die-killerapplikation-mit-node.js-socket.io-und-angularjs/
 .factory('socket', function($rootScope) {
     var socket = io.connect();
     return {
@@ -34,23 +52,43 @@ var departureMonitor = angular.module('departureMonitor', [])
 
 .controller('DepartureMonitorController', function ($scope, socket) {
     $scope.stopname = 'departureMonitor';
-    $scope.departures = [];
+    $scope.departures = {};
 
     socket.on('departures', function(data) {
 	$scope.stopname = data.info.stopname;
 	$scope.timestamp = data.info.timestamp;
-	$scope.departures = data.departures.splice(0,5);
 
-	for (var i = 0; $scope.departures.length; i++) {
-	    $scope.departures[i].hour = '';
-	    $scope.departures[i].direction = $scope.departures[i].direction.replace(/ \(.*\)/, '');
+	data.departures.splice(0,5).forEach(function(departure) {
+	    var hash = departure.line + '#' + departure.timetable;
 
-	    if ($scope.departures[i].realtime == "1" && $scope.departures[i].delay > 0) {
-		$scope.departures[i].countdown = " (+" + $scope.departures[i].delay + ")" + $scope.departures[i].countdown;
-	    } else if ($scope.departures[i].countdown > 25) {
-		$scope.departures[i].hour = $scope.departures[i].timetable.substr(0, 3);
-		$scope.departures[i].countdown = $scope.departures[i].timetable.substr(3);
+	    // strip additional direction information
+	    departure.direction = departure.direction.replace(/ \(.*\)/, '');
+
+	    // create departure entry if it doesn't exist yet
+	    if (!$scope.departures[hash])
+		$scope.departures[hash] = departure;
+
+	    $scope.departures[hash].countdown = parseInt(departure.countdown);
+	    $scope.departures[hash].updated = true;
+
+	    // update departure information
+	    if (departure.realtime == "1" && departure.delay > 0) {
+		$scope.departures[hash].minutes = " (+" + departure.delay + ")" + departure.countdown;
+		$scope.departures[hash].hour = '';
+	    } else if (departure.countdown > 25) {
+		$scope.departures[hash].minutes = departure.timetable.substr(3);
+		$scope.departures[hash].hour = departure.timetable.substr(0, 3);
+	    } else {
+		$scope.departures[hash].minutes = departure.countdown;
+		$scope.departures[hash].hour = '';
 	    }
-	}
+	});
+
+	angular.forEach($scope.departures, function(departure, hash) {
+	    if (!departure.updated)
+		delete $scope.departures[hash];
+	    else
+		departure.updated = false;
+	});
     });
 });
