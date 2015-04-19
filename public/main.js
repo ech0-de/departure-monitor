@@ -71,11 +71,8 @@ var departureMonitor = angular.module('departureMonitor', ['ngAnimate'])
 })
 
 .controller('DepartureMonitorController', function ($scope, socket) {
-    $scope.disruptionFeed = 'Lorem ipsum dolor sit amet, consetetur sadipscing'
-	+ ' elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore'
-	+ ' magna aliquyam erat, sed diam voluptua';
-
     $scope.stopname = 'departureMonitor';
+    $scope.disruptionFeed = '';
     $scope.departures = {};
 
     socket.on('departures', function(data) {
