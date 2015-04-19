@@ -111,19 +111,20 @@ body {
 }
 
 .departure.ng-enter {
-    transition:.5s linear all;
-    margin-left:-100%;
+    transition:.75s linear all;
+    opacity:0;
 }
 
 .departure.ng-enter.ng-enter-active {
-    margin-left:0;
+    opacity:1;
 }
 
 .departure.ng-leave {
-    transition:.5s linear all;
+    transition:1.5s linear all;
     margin-left:0;
 }
 
 .departure.ng-leave.ng-leave-active {
-    margin-left:100%;
+    margin-left:200%;
+    margin-top:-100%;
 }

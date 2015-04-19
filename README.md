@@ -1,10 +1,16 @@
 # departure-monitor
 
-A distributed departure monitor using html5, angularjs and socket.io.
-The monitor connects to a json formatted gtfs feed and displays departure in a
+<img align="right" width="200" src="http://ech0.de/img/departure-monitor.png">
+
+A distributed departure monitor using html5, angularjs and socket.io. The
+monitor connects to a json formatted gtfs feed and displays departures in a
 simple and responsive web interface.
 
-<img align="right" width="200" src="http://ech0.de/img/departure-monitor.png">
+This software was developed to display live departure times at ulm university,
+since the local transit company does not provide a DPI (Dynamic Passenger
+Information) at our university. But the SWU provides a xml feed with realtime
+information for all stops and service disruption informations, which are used
+for this departure monitor.
 
 ## Install
 
