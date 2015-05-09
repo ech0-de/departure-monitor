@@ -10,14 +10,14 @@ body {
  */
 * {
     font-size: 30px;
-    font-size: 4vw;
+    font-size: 5vw;
     /* improve contrast (see http://www.writer2001.com/colwebcontrast.htm) */
     color: #ffc400;
 }
 @media (min-width: 768px) {
     * {
 	font-size: 40px;
-	font-size: 8vw;
+	font-size: 10.3vw;
     }
 }
 
@@ -54,7 +54,7 @@ body {
 }
 
 .departure-direction {
-    width: 63%;
+    width: 58%;
     height: 100%;
 
     padding-left: 1%;
@@ -65,7 +65,7 @@ body {
 }
 
 .departure-countdown {
-    width: 17%;
+    width: 22%;
 
     padding-left: 1%;
     padding-right: 1%;
@@ -76,7 +76,7 @@ body {
 
 .departure-hour {
     font-size: 30px;
-    font-size: 4vw;
+    font-size: 6vw;
 }
 
 #stop-info {
@@ -85,7 +85,7 @@ body {
     right: 0;
     left: 0;
     height: 55px;
-    height: 7.5vw;
+    height: 9vw;
 
     background-color: rgba(20, 20, 20, 0.9);
 }
@@ -93,7 +93,7 @@ body {
 #stop-name {
     margin: 0;
     font-size: 30px;
-    font-size: 4vw;
+    font-size: 6vw;
 
     position: absolute;
     bottom: 1%;
@@ -103,7 +103,7 @@ body {
 #stop-time {
     margin: 0;
     font-size: 40px;
-    font-size: 6vw;
+    font-size: 7vw;
 
     position: absolute;
     bottom: 1%;
@@ -145,7 +145,7 @@ body {
     left: 20px;
 
     font-size: 60px;
-    font-size: 7vw;
+    font-size: 8vw;
 
     overflow: hidden;
     white-space: nowrap;
@@ -168,7 +168,7 @@ body {
     left: 0;
 
     font-size: 60px;
-    font-size: 7vw;
+    font-size: 8vw;
 
     background-color: rgba(36, 24, 4, 0.8);
 }

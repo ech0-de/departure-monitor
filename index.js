@@ -8,7 +8,7 @@ var io = require('socket.io')(srv);
 
 var libxmljs = require('libxmljs');
 var port = process.env.PORT || 3000;
-var pad = function(n) { return ('00' + n).slice(-2); }
+var pad = function(n) { return ('00' + n).slice(-2); };
 
 var disruptionFeed = '';
 
@@ -45,7 +45,7 @@ var options = {
 	+ id + '&deleteAssignedStops_dm=1&useRealtime=1&mode=direct'
 };
 
-callback = function(response) {
+var callback = function(response) {
     var data = '';
 
     response.on('data', function(chunk) {
