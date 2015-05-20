@@ -16,7 +16,9 @@
 
 <body>
     <div class="departure" data-ng-repeat="departure in departures | orderObjectBy:'countdown'">
-	<div class="departure-line">{{ departure.line }}</div>
+	<div class="departure-line" style="background-image: url(img/stadtbus{{departure.line}}.png)">
+	    &nbsp;
+	</div>
 	<div class="departure-direction">{{ departure.direction }}</div>
 	<div class="departure-countdown">
 	    <span class="departure-hour">

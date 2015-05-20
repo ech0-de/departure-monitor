@@ -12,6 +12,7 @@ body {
     font-family: 'Roboto', sans-serif;
     font-size: 30px;
     font-size: 5vw;
+
     /* improve contrast (see http://www.writer2001.com/colwebcontrast.htm) */
     color: #ffc400;
 }
@@ -52,6 +53,10 @@ body {
     padding-left: 1%;
 
     text-align: center;
+
+    background-size: 90% 90%;
+    background-repeat: no-repeat;
+    background-position: center center;
 }
 
 .departure-direction {
