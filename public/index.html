@@ -8,6 +8,7 @@
     <title>{{ stopname }}</title>
 
     <link rel="stylesheet" href="/normalize/normalize.css">
+    <link rel="stylesheet" href="/html5-marquee/marquee.css">
     <link rel="stylesheet" href="/font-awesome/css/font-awesome.css">
     <link rel="stylesheet" href="style.css">
 </head>
@@ -29,7 +30,15 @@
 	<div id="stop-time">{{ timestamp }}</div>
     </div>
 
-    <disruption></disruption>
+    <div class="disruption" ng-show="disruptionFeed">
+	<div class="left">
+	    <i class="fa fa-warning"></i>
+	</div>
+	<div class="marquee marquee-speed-slow" data-marquee="{{disruptionFeed}}"></div>
+	<div class="right">
+	    <i class="fa fa-warning"></i>
+	</div>
+    </div>
 
     <script src="/angular/angular.min.js"></script>
     <script src="/angular-animate/angular-animate.min.js"></script>

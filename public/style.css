@@ -139,26 +139,8 @@ body {
     100% { transform: translate(-100%, 0); }
 }
 
-.disruption-feed {
-    position: absolute;
-    bottom: 15%;
-    left: 20px;
 
-    font-size: 60px;
-    font-size: 8vw;
-
-    overflow: hidden;
-    white-space: nowrap;
-}
-
-.disruption-feed.active {
-    animation: marquee 40s linear infinite;
-
-    /* Chrome, Safari, Opera */
-    -webkit-animation: marquee 40s linear infinite;
-}
-
-.disruption-bg {
+.disruption {
     position: absolute;
     height: 70px;
     height: 8vw;
@@ -167,8 +149,25 @@ body {
     right: 0;
     left: 0;
 
+    background-color: rgba(36, 24, 4, 0.8);
+}
+
+.disruption > div {
+    position: absolute;
+
     font-size: 60px;
     font-size: 8vw;
+}
 
-    background-color: rgba(36, 24, 4, 0.8);
+.disruption > .marquee {
+    right: 10%;
+    left: 10%;
+}
+
+.disruption > .left {
+    left: 0;
+}
+
+.disruption > .right {
+    right: 0;
 }

@@ -50,26 +50,6 @@ var departureMonitor = angular.module('departureMonitor', ['ngAnimate'])
     };
 })
 
-.directive('disruption', function() {
-    return {
-	restrict: 'E',
-	transclude: true,
-	template: '<div ng-show="disruptionFeed" class="disruption-bg"></div>'
-	    + '<div ng-show="disruptionFeed" class="disruption-feed">'
-	    + '<i class="fa fa-warning"></i> {{ disruptionFeed }}</div>',
-	link: function (scope, element, attrs) {
-	    scope.$watch('disruptionFeed', function(newValue, oldValue) {
-		var e = element.children();
-
-		if (e.eq(1)[0].scrollWidth <= e.eq(0)[0].clientWidth)
-		    e.eq(1).removeClass('active');
-		else
-		    e.eq(1).addClass('active');
-	    });
-	}
-    };
-})
-
 .controller('DepartureMonitorController', function ($scope, socket) {
     $scope.stopname = 'departureMonitor';
     $scope.disruptionFeed = '';
