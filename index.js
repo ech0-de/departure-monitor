@@ -19,6 +19,7 @@ srv.listen(port, function() {
 app.use(express.static(__dirname + '/public'));
 app.use('/angular', express.static(__dirname + '/node_modules/angular'));
 app.use('/angular-animate', express.static(__dirname + '/node_modules/angular-animate'));
+app.use('/html5-marquee', express.static(__dirname + '/node_modules/html5-marquee/css'));
 app.use('/font-awesome', express.static(__dirname + '/node_modules/font-awesome'));
 app.use('/normalize', express.static(__dirname + '/node_modules/normalize.css'));
 
