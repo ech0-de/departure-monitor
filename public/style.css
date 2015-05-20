@@ -9,6 +9,7 @@ body {
  * (see http://stackoverflow.com/questions/14431411/pure-css-to-make-font-size-responsive-based-on-dynamic-amount-of-characters)
  */
 * {
+    font-family: 'Roboto', sans-serif;
     font-size: 30px;
     font-size: 5vw;
     /* improve contrast (see http://www.writer2001.com/colwebcontrast.htm) */

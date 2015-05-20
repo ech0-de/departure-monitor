@@ -35,6 +35,8 @@ $ npm start
  * [angularjs](http://angularjs.org/)
  * [normalize](http://necolas.github.io/normalize.css/)
  * [Font Awesome](https://fortawesome.github.io/Font-Awesome/)
+ * [html5-marquee](https://github.com/muchweb/html5-marquee)
+ * [Roboto Font](https://github.com/choffmeister/roboto-fontface-bower)
 
 ## License
 
