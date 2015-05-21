@@ -60,7 +60,7 @@ var departureMonitor = angular.module('departureMonitor', ['ngAnimate'])
 	$scope.timestamp = data.info.timestamp;
 
 	data.departures.splice(0,5).forEach(function(departure) {
-	    var hash = departure.line + '#' + departure.timetable;
+	    var hash = departure.key;
 
 	    // strip additional direction information
 	    departure.direction = departure.direction.replace(/ \(.*\)/, '');

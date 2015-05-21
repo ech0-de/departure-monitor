@@ -81,6 +81,7 @@ var callback = function(response) {
 	    tmp.line = dep.get('./itdServingLine/@number').value();
 	    tmp.direction = dep.get('./itdServingLine/@direction').value();
 	    tmp.realtime = dep.get('./itdServingLine/@realtime').value();
+	    tmp.key = dep.get('./itdServingLine/@key').value();
 	    tmp.countdown = dep.get('./@countdown').value();
 	    tmp.platform = dep.get('./@platform').value();
 
