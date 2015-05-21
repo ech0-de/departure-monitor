@@ -10,8 +10,6 @@ var libxmljs = require('libxmljs');
 var port = process.env.PORT || 3000;
 var pad = function(n) { return ('00' + n).slice(-2); };
 
-var disruptionFeed = '';
-
 srv.listen(port, function() {
     console.log('Server listening at port %d', port);
 });
@@ -133,10 +131,7 @@ var disruptionCallback = function(response) {
 	if (xml.get('/root/teaseritem/teaser'))
 	    notice = xml.get('/root/teaseritem/teaser').text();
 
-	if (notice != disruptionFeed) {
-	    disruptionFeed = notice;
-	    io.emit('disruption', notice);
-	}
+	io.emit('disruption', notice);
     });
 };
 
